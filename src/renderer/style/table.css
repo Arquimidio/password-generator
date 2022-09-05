@@ -1,0 +1,36 @@
+table{
+    display: table;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.table-wrapper{
+    height: 150px;
+    overflow-y: auto;
+    background-color: var(--generated-password);
+}
+
+thead{
+    background-color:var(--generate-btn);
+    border: 1px solid black;
+    color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+tbody tr:not(.linha-selecionada):hover{
+    outline: 1px solid var(--contrast-blue);
+}
+
+th,
+td{
+    padding: .5rem;
+    text-transform: capitalize;
+    letter-spacing: .05rem;
+}
+
+
+tbody tr:nth-child(even){
+    background-color: var(--intermediate-grey);
+}

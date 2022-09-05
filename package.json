@@ -1,0 +1,20 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "idk",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest",
+    "start": "electron ."
+  },
+  "author": "gabriel",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^20.0.1",
+    "electronmon": "^2.0.2"
+  },
+  "dependencies": {
+    "check-password-strength": "^2.0.7",
+    "electron-store": "^8.1.0"
+  }
+}

@@ -1,0 +1,57 @@
+@keyframes changeBg{
+    100%{
+        background-color: var(--main-color);
+    }
+}
+
+img{
+    max-width: 100%;
+    width: 20px;
+}
+
+.navbar-container{
+    user-select: none;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--navbar);
+    position: fixed;
+    top: 0;
+    left: 0;
+    -webkit-app-region: drag;
+    color: white;
+}
+
+.navbar > ul{
+    display: flex;
+    -webkit-app-region: no-drag;
+}
+
+.navbar-button{
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.navbar-button:hover{
+    opacity: .8;
+}
+
+.navbar-button.right:hover{
+    background-color: var(--main-color);
+}
+
+.navbar-button.selected{
+    animation: changeBg .4s forwards;
+}
+
+.navbar-button.selected path{
+    fill: #fff;
+}
+
