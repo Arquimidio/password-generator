@@ -33,14 +33,19 @@ module.exports = class PasswordGenerator{
         return Math.floor(Math.random() * (max + 1 - min) + min)
     }
 
+    getShuffledAllowed(){
+        const allowed = Object.keys(this).filter(entry => this[entry] === true)
+        return this.shuffle(allowed)
+    }
+
     generate(){
         let password = []
-        const allowed = Object.keys(this).filter(entry => this[entry] === true)
-        const shuffledAllowed = this.shuffle(allowed)
+        const shuffledAllowed = this.getShuffledAllowed()
         let count = 0
         while(password.length < this.desiredLength){
+            const curPreference = shuffledAllowed[count % shuffledAllowed.length]
             const [min, max] = 
-                this.charRanges[shuffledAllowed[count % shuffledAllowed.length]]
+                this.charRanges[curPreference]
             const randCharCode = this.randomInRange(min, max)
             password.push(String.fromCharCode(randCharCode))
             count++

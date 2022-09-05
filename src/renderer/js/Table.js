@@ -108,6 +108,13 @@ class Table{
             }
 
             const column = this.createCol(colValue)
+
+            if(this.shouldApplyCallback('allCols')){
+                column.addEventListener(
+                    'click',
+                    this.applyCb['allCols'].bind(this, colValue) 
+                )
+            }
             curRow.append(column)
         }
     }

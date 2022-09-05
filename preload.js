@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
         range.addEventListener('input', moveRangeLeftColor)
     }
 
-    
+    //document.documentElement.setAttribute('data-theme', 'light')
     gotoStorage.addEventListener('click', () => ipcRenderer.send('goto-storage'))
     gotoPass.addEventListener('click', () => ipcRenderer.send('goto-pass'))
 

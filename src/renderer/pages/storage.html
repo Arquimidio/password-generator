@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Password Generator</title>
     <link rel="stylesheet" href="../style//main.css">
     <link rel="stylesheet" href="../style/navigation.css">
     <link rel="stylesheet" href="../style//table.css">
+    <link rel="stylesheet" href="../style//scrollbar.css">
 </head>
 <body>
     <header class="navbar-container">
@@ -28,18 +29,39 @@
                 </li>
             </ul>
             <ul class="navbar-buttons">
-                <li class="navbar-button right navbar-minimize">-</li>
-                <li class="navbar-button right navbar-close">X</li>
+                <li class="navbar-button right navbar-minimize">
+                    <svg width="20px" height="20px" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="15" y="23" width="20" height="5" rx="1" fill="white"/>
+                    </svg>
+                </li>
+                <li class="navbar-button right navbar-close">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
-        <form>
-            <input type="text" placeholder="Site">
-            <input type="text" placeholder="Login">
+        <form id="account-form">
+            <input name="account" type="text" placeholder="Site">
+            <div class="side-by-side">
+                <input name="account" type="text" placeholder="Login">
+                <input name="account" type="text" placeholder="Password">
+                <button class="btn">Save</button>
+            </div>
         </form>
-        <div class="generated-password">PASSWORD</div>
-        <button class="btn">Store</button>
         <div id="table-wrapper" class="table-wrapper"></div>
     </main>
     <script src="../js/storage.js"></script>

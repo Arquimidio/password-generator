@@ -1,0 +1,16 @@
+[data-theme=light]{
+  --body: #f0f0f0;
+  --navbar: #e4e5f1;
+  --navbar-button-hover: var(--main-color);
+  --accent: var(--main-color);
+  --generated-password: #d2d3db;
+  --main-font: #ffffff;
+  --slider-empty: rgb(138, 138, 138);
+  --generate-btn: var(--main-color);
+  --strength: rgb(186, 181, 181);
+  --strength-title: rgb(212, 212, 212);
+  --too-weak: rgb(189, 40, 29);
+  --weak: rgb(223, 148, 8);
+  --medium: rgb(216, 198, 32);
+  --strong: var(--main-color);
+}

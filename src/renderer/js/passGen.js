@@ -79,30 +79,58 @@ function generatePassword(){
     }
 }
 
-ipcRenderer.send('get-preferences')
-ipcRenderer.on('receive-preferences', (event, preferences) => {
-    passGenerator = new PasswordGenerator(preferences)
+function showCopyConfirmation(){
+    passwordDisplay.innerText = 'Copied!'
+    copyToClipboard.style.display = 'none'
+}
+
+function hideCopyConfirmation(password){
+    setTimeout(() =>{
+        passwordDisplay.innerText = password
+        copyToClipboard.style.display = 'block'
+        enablegeneration()
+    }, 800)
+}
+
+function toClipboard(){
+    clipboard.writeText(passwordDisplay.innerText)
+    const password = passwordDisplay.innerText
+    showCopyConfirmation()
+    disableGeneration()
+    hideCopyConfirmation(password)
+}
+
+function initializeCheckboxes(){
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('input', togglePreference)
         checkbox.checked = passGenerator[checkbox.id]
     })
-    toggleGeneration()
+}
+
+function initializeLengthControl(){
     lengthControl.addEventListener('input', changeLength)
     lengthControl.value = passGenerator.desiredLength
     moveRangeLeftColor(lengthControl)
     lengthValue.innerHTML = lengthControl.value
+}
+
+function initializeGeneration(){
+    toggleGeneration()
     generateBtn.addEventListener('click', generatePassword)
-    copyToClipboard.addEventListener('click', () => {
-        clipboard.writeText(passwordDisplay.innerText, 'selection')
-        const password = passwordDisplay.innerText
-        passwordDisplay.innerText = 'Copied!'
-        copyToClipboard.style.display = 'none'
-        disableGeneration()
-        setTimeout(() =>{
-            passwordDisplay.innerText = password
-            copyToClipboard.style.display = 'block'
-            enablegeneration()
-        }, 800)
-    })
+}
+
+function initializeCopyToClipboard(){
+    copyToClipboard.addEventListener('click', toClipboard)
     copyToClipboard.style.display = 'none'
-})
+}
+
+function initializePage(event, preferences){
+    passGenerator = new PasswordGenerator(preferences)
+    initializeCheckboxes()
+    initializeLengthControl()
+    initializeGeneration()
+    initializeCopyToClipboard()
+}
+
+ipcRenderer.send('get-preferences')
+ipcRenderer.on('receive-preferences', initializePage)

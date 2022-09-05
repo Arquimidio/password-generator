@@ -1,7 +1,7 @@
 module.exports = class StoreItem{
-    constructor(password){
-        this.site = null
-        this.login = null
+    constructor(site, login, password){
+        this.site = site
+        this.login = login
         this.password = password
     }
 }
