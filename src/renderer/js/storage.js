@@ -1,6 +1,6 @@
 const { ipcRenderer, clipboard } = require('electron')
 const StoreItem = require('../js/StoreItem')
-const Table = require('../js/Table')
+const Table = require('../js/Table/Table')
 const accountForm = document.getElementById('account-form')
 let table
 

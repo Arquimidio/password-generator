@@ -5,8 +5,10 @@ const store = new Store()
 const DataSender = require('./src/renderer/js/DataSender')
 const WINDOW_WIDTH = 400
 const WINDOW_HEIGHT = 515
+
 const MAIN_PATH = './src/renderer/pages/passGen.html'
 const STORAGE_PATH = './src/renderer/pages/storage.html'
+const SETTINGS_PATH = './src/renderer/pages/settings.html'
 let win
 
 if(!store.get('config')){
@@ -100,6 +102,7 @@ ipcMain.on('app-close', () => app.quit())
 ipcMain.on('app-minimize', () => win.minimize())
 ipcMain.on('goto-storage', changeWindow(STORAGE_PATH))
 ipcMain.on('goto-pass', changeWindow(MAIN_PATH))
+ipcMain.on('goto-settings', changeWindow(SETTINGS_PATH))
 ipcMain.on('password-store', storePassword)
 ipcMain.on('toggle-preference', storePreference)
 ipcMain.on('get-preferences', getStoredPreferences)

@@ -1,6 +1,7 @@
 function changeProgressGradient(target, percentage){
+    const gradient = `var(--accent) ${percentage}%, var(--slider-empty) ${percentage}%`
     target.style.background = 
-        `linear-gradient(to right, var(--accent) ${percentage}%, var(--slider-empty) ${percentage}%)`
+        `linear-gradient(to right, ${gradient})`
 }
 
 function getProgressPercentage(target){
